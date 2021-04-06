@@ -24,6 +24,12 @@ public class Regex {
 		Matcher m = p.matcher(q);
 		return (m.find() && m.group().equals(q));
 	}
+	public static boolean password(String pass) {
+
+		Pattern p = Pattern.compile("(?=.*[A-Z])\r\n(?=.*[a-z])\r\n(?=.*[0-9])\r\n(?!.*[<>`])\r\n(?=[^.,:;'!@#$%^&_+=|(){}[?\\-\\]\\/\\\\]\r\n[.,:;'!@#$%^&*_+=|(){}[?\\-\\]\\/\\]\r\n[^.,:;'!@#$%^&_+=|(){}[?\\-\\]\\/\\]$\r\n)\r\n.{8}$");
+		Matcher m = p.matcher(pass);
+		return (m.find() && m.group().equals(pass));
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Enter first name ");
@@ -56,6 +62,13 @@ public class Regex {
 		
 		String pn = sc.nextLine();
 		if (phonenumber(pn))
+			System.out.println("phone number is valid");
+
+		else
+			System.out.println("phone number is invalid");
+		
+		String pass = sc.nextLine();
+		if (password(pass))
 			System.out.println("phone number is valid");
 
 		else
