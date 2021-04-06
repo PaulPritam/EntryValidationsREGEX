@@ -18,6 +18,13 @@ public class Regex {
 		return (m.find() && m.group().equals(e));
 	}
 
+	public static boolean phonenumber(String q) {
+
+		Pattern p = Pattern.compile("[0-9]{2}\s[0-9]{10}");
+		Matcher m = p.matcher(q);
+		return (m.find() && m.group().equals(q));
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Enter first name ");
 		Scanner sc = new Scanner(System.in);
@@ -26,7 +33,7 @@ public class Regex {
 			System.out.println("first name is valid");
 
 		else
-			
+
 			System.out.println("first name is invalid");
 
 		System.out.println("\nenter last name ");
@@ -44,5 +51,14 @@ public class Regex {
 
 		else
 			System.out.println("email is invalid");
+
+		System.out.println("\nenter phone number ");
+		
+		String pn = sc.nextLine();
+		if (phonenumber(pn))
+			System.out.println("phone number is valid");
+
+		else
+			System.out.println("phone number is invalid");
 	}
 }
